@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+<title>Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<!--Form-->
+<div class="Wrap">
+  <div class="content">
+<form>
+  <p class="Heading">Find den bedste ladeløsning til dine behov</p>
+  <div class="questionOne">
+    <div class="txt">
+      <p class="textFont">Har du mulighed for at få installeret egen ladeboks på din adresse?</p>
+      <i style="font-size:24px;color:#047E65;" class="fa">&#xf05a;</i>
+    </div>
+    <div class="btn">
+      <button class="BtnStyle" onclick="myFunction()" id="button" type="button" name="button">Ja</button>
+      <button class="BtnStyle" type="button" name="button">Nej</button>
+    </div>
+  </div>
+
+  <div class="questionTwo">
+    <div class="txt">
+      <p class="textFont">Hvor meget forventer du at lade hjemme</p>
+      <i style="font-size:24px;color:#047E65;" class="fa">&#xf05a;</i>
+    </div>
+     <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  </div>
+
+  <div class="questionOne">
+    <div class="txt">
+      <p class="textFont">Har du solceller eller varmepumpe?</p>
+      <i style="font-size:24px;color:#047E65;" class="fa">&#xf05a;</i>
+    </div>
+    <div class="btn">
+      <button class="BtnStyle" type="button" name="button">Ja</button>
+      <button class="BtnStyle" onclick="myFunction2()" id="button2" type="button" name="button">Nej</button>
+    </div>
+  </div>
+
+  <div class="questionOne">
+    <div class="txt">
+      <p class="textFont">Hvor mange kilomenter forventer du at køre om året?</p>
+      <i style="font-size:24px;color:#047E65;" class="fa">&#xf05a;</i>
+    </div>
+    <div class="kilometer">
+        <input class="fieldKm" type="text" name="" placeholder="Km/år">
+    </div>
+  </div>
+  <br>
+
+    <a class="CTAbtn" href="#">Sammenlign priser</a>
+</form>
+</div>
+</div>
+
+<!--Cards skrifter mellem lukket og åbnent card-->
+<div onclick="CardCollapse(this.id)" id="OkId">
+  <img src="images/OKcard.svg">
+  <img class="hideImage" src="images/OKfoldOut.svg">
+</div>
+
+<div onclick="CardCollapse(this.id)" id="OkId1">
+  <img src="images/OKcard.svg">
+  <img class="hideImage" src="images/OKfoldOut.svg">
+</div>
+
+<style>
+/*Cards skrifter mellem at vise og skjule billede - Læs mere/læs mindre*/
+.hideImage{
+  display: none;
+}
+
+.showImage{
+  display: block;
+}
+/*Styling af Form*/
+a:link{
+  text-decoration: none;
+}
+
+.Wrap{
+  background-color: white;
+  border-color: #047E65;
+  border-style: solid;
+  width: 750px;
+  height: 350px;
+  box-shadow: 3px 6px #F5F5F5;
+  border-radius: 10px;
+}
+
+.content{
+  margin: 20px;
+  text-align: center;
+}
+
+.Heading{
+  font-family: Sansita;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.textFont{
+  font-family: Lato;
+  margin-right: 5px;
+}
+
+.questionOne{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.questionTwo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#myRange{
+  background-color: #047E65;
+}
+
+.kilometer{
+  font-family: Lato;
+}
+
+.fieldKm{
+  border-style: solid;
+  border-color: #047E65;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.txt{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.BtnStyle{
+  width: 96px;
+  height: 48px;
+  background-color: #ffffff;
+  border-style: solid;
+  border-color: #047E65;
+  border-radius: 5px;
+}
+
+.BtnStyle:active{
+  background-color: #8EE5BA;
+}
+
+
+.CTAbtn{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  font-size: 16px;
+  font-family: Lato;
+  box-shadow: 0px 3px 6px #E5E5E5;
+  background-color: #F4A039;
+  border-radius: 40px;
+  border-style: solid;
+  border-color: #F4A039;
+}
+
+/*Mediatules til form - Virker ikke i Wordpress*/
+@media only screen and (max-width: 600px) {
+  .Wrap{
+    width: 550px;
+    height: 550px;
+  }
+
+  .questionOne{
+    flex-direction: column;
+  }
+
+  .questionTwo{
+    flex-direction: column;
+  }
+
+  .BtnStyle{
+    width: 200px;
+  }
+
+  .fieldKm{
+    width: 200px;
+    margin-bottom: 30px;
+  }
+}
+
+</style>
+
+<script>
+//Skrifter baggrundsfarve på knapper i form
+function myFunction() {
+document.getElementById("button").style.backgroundColor= '#8EE5BA';
+}
+
+function myFunction2() {
+document.getElementById("button2").style.backgroundColor= '#8EE5BA';
+}
+
+//Cards læs mere og læs mindre - skrifter mellem to billeder
+function CardCollapse(clicked_id) {
+
+  var elementDiv = document.getElementById(clicked_id);
+  var firstImage = elementDiv.children[0];
+  var lastImage = elementDiv.children[1];
+
+  if (firstImage.className == "hideImage") {
+    firstImage.className = "showImage";
+    lastImage.className = "hideImage";
+  }
+  else {
+    firstImage.className = "hideImage";
+    lastImage.className = "showImage";
+  }
+}
+
+</script>
+
+</html>
